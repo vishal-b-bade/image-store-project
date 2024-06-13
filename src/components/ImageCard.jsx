@@ -6,7 +6,7 @@ import {
   getFilePreview,
 } from "../appwrite/config";
 
-const ImageCard = ({ image }) => {
+const ImageCard = ({ image, isLogin }) => {
   const [imageUrl, setImageUrl] = useState();
 
   // console.log(image);
@@ -45,6 +45,10 @@ const ImageCard = ({ image }) => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    isLogin();
+  }, [deleteImage]);
 
   return (
     <div className="image-card">

@@ -15,9 +15,9 @@ const Login = () => {
   const isLogout = async () => {
     try {
       const user = await getCurrentUser();
-      //   console.log(user);
-      if (user) {
-        userLogin();
+      // console.log(user);
+      if (typeof user !== "undefined") {
+        navigate("/dashboard");
       }
     } catch (error) {
       console.log(error);
@@ -39,7 +39,11 @@ const Login = () => {
     try {
       const user = await loginUser({ email, password });
       // console.log(user);
-      navigate("/dashboard");
+      if (user) {
+        navigate("/dashboard");
+      } else {
+        setErrors("Invalid User or Password!");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -48,7 +52,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <h1>User Login</h1>
-      {errors ? <p className="error-message">{errors}</p> : null}
+      {errors !== "" && <p className="error-message">{errors}</p>}
       <form onSubmit={login}>
         <label htmlFor="email">Email:</label>
         <input

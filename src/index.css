@@ -383,4 +383,10 @@ button:hover {
     font-size: 6vw;
   }
 
+  /* image card */
+  
+  .image-actions button {
+    font-size: 1rem;
+  }
+
 }

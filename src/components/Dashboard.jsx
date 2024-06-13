@@ -19,23 +19,21 @@ const Dashboard = () => {
     try {
       const user = await getCurrentUser();
       // console.log(user);
-      if (user) {
-        currentUser();
+      if (typeof user !== "undefined") {
+        currentUser(user);
       } else {
-        navigate("/");
+        navigate("/login");
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  const currentUser = async () => {
+  const currentUser = async (user) => {
     try {
-      const user = await getCurrentUser();
-      // console.log(user);
       if (user.emailVerification === false) {
         emailVerify();
-        alert("Email is not verified. plzz, check mail.");
+        alert("Plzz, verifiy email, check your mail.");
         handleLogout();
       } else {
         setName(user.name);
@@ -64,7 +62,7 @@ const Dashboard = () => {
     try {
       const user = logoutUser();
       if (user) {
-        navigate("/");
+        navigate("/login");
       }
     } catch (error) {
       console.log(error);
@@ -82,7 +80,7 @@ const Dashboard = () => {
       const imageId = file.$id;
 
       if (file) {
-        const document = await createDocument({ email, imageId: imageId });
+        const document = await createDocument({ email, imageId });
         // console.log(document);
 
         if (document) {
@@ -110,7 +108,7 @@ const Dashboard = () => {
 
       <div className="image-gallery">
         {imageId?.map((image) => (
-          <ImageCard key={image.$id} image={image} />
+          <ImageCard key={image.$id} image={image} isLogin={isLogin} />
         ))}
       </div>
     </div>

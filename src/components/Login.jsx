@@ -46,7 +46,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h1>User Login Form</h1>
+      <h1>User Login</h1>
       {errors ? <p className="error-message">{errors}</p> : null}
       <form onSubmit={login}>
         <label htmlFor="email">Email:</label>

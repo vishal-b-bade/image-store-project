@@ -343,6 +343,7 @@ button:hover {
   .register-container,
   .login-container {
     max-width: 96vw;
+    height: 98vh;
     padding: 4vw;
   }
 

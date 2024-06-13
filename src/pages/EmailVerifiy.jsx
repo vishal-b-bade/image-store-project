@@ -6,9 +6,9 @@ function EmailVerifiy() {
   const navigate = useNavigate();
   const [params] = useSearchParams();
   const userId = params.get("userId");
-  console.log("userId : ", userId);
+  // console.log("userId : ", userId);
   const secret = params.get("secret");
-  console.log("secret : ", secret);
+  // console.log("secret : ", secret);
 
   const Verify = async () => {
     try {

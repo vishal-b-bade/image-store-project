@@ -26,7 +26,7 @@ const Login = () => {
 
   const login = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    // console.log(email, password);
 
     // Add your login logic here
     userLogin();
@@ -37,7 +37,8 @@ const Login = () => {
 
   const userLogin = async () => {
     try {
-      await loginUser({ email, password });
+      const user = await loginUser({ email, password });
+      // console.log(user);
       navigate("/dashboard");
     } catch (error) {
       console.log(error);

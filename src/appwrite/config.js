@@ -13,8 +13,8 @@ client.setEndpoint(appwriteUrl).setProject(appwriteProjectId);
 const database = new Databases(client);
 const storage = new Storage(client);
 
-// document service
 
+// document service
 const createDocument = async ({ email, imageId }) => {
   try {
     return await database.createDocument(
@@ -68,8 +68,8 @@ const deleteDocument = async (documentId) => {
   }
 };
 
-// file service
 
+// file service
 const createFile = async (file) => {
   try {
     return await storage.createFile(appwriteBucketId, ID.unique(), file);

@@ -10,6 +10,7 @@ const ImageForm = ({ uploadImage, setImage }) => {
           id="image-input"
           accept="image/*"
           onChange={(e) => setImage(e.target.files[0])}
+          autoComplete="false"
         />
         <label htmlFor="image-input" className="upload-btn">
           Select Image

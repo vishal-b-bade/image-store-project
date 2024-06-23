@@ -32,9 +32,12 @@ const loginUser = async ({ email, password }) => {
 
 const getCurrentUser = async () => {
   try {
-    const currentUser = await account.get("current");
+    // const currentUser = await account.get("current");
+    const currentUser = await account.get();
     // console.log(currentUser);
-    return currentUser;
+    if (currentUser) {
+      return currentUser;
+    }
   } catch (error) {
     console.log("Appwrite :: getCurrentUser :: Error ", error);
   }

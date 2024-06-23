@@ -62,7 +62,8 @@ const Login = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-        />
+          autoComplete="false"
+          />
 
         <label htmlFor="password">Password:</label>
         <input
@@ -72,6 +73,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autoComplete="false"
         />
 
         <p>
